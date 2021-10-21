@@ -2,8 +2,8 @@ package com.foxminded;
 
 public class Main {
     public static void main(String[] args) {
-        IntegerDivision integerDivision = new IntegerDivision(new Integer(1024), new Integer(8));
-        integerDivision.resultingDivisionProcess();
-        System.out.println(integerDivision.printResult);
+        Print print = new Print(new Integer(12), new Integer(54));
+        print.generalDivisionPrint();
+        System.out.println(print.getPrintResult());
     }
 }
