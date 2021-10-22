@@ -8,12 +8,24 @@ public class Print extends MethodsDivision {
     public void generalDivisionPrint() {
         headDivisionPrint();
         while (getDividend() >= getDivider()) {
+            /*if (Integer.toString(this.createNotFullDivisible()).length() > Integer.toString(getMultiplier() * getDivider()).length()) {
+                getPrintResult().append("\n" + getSpace().toString());
+                //getPrintResult().deleteCharAt(getPrintResult().lastIndexOf(" "));
+                getPrintResult().append("_" + this.createNotFullDivisible());
+                selectNextNotFullDivisible();
+                getPrintResult().append("\n" + getSpace().toString() + getMultiplier() * getDivider());
+                getPrintResult().append("\n" + getSpace().toString());
+                printChar("-", getNotFullDivisible().length());
+            }else{
+            */
             getPrintResult().append("\n" + getSpace().toString() + "_" + this.createNotFullDivisible());
             selectNextNotFullDivisible();
             getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
             getPrintResult().append("\n" + getSpace().toString() + " ");
             printChar("-", getNotFullDivisible().length());
-            getSpace().append(" ");
+            if (getNotFullDivisible().length() != Integer.toString((Integer.parseInt(getNotFullDivisible().toString())) % getDivider()).length()) {
+                getSpace().append(" ");
+            }
         }
         remainsDivisionPrint();
     }
@@ -21,20 +33,21 @@ public class Print extends MethodsDivision {
     public void headDivisionPrint() {
         getPrintResult().append("_" + Integer.toString(getDividend()) + "|" + Integer.toString(getDivider()));
         int result = getDividend() / getDivider();
-        getPrintResult().append("\n" + getSpace().toString() + "_" + this.createNotFullDivisible());
-        printChar(" ", Integer.toString(getDividend()).length() - getNotFullDivisible().length());
-        getPrintResult().append("|");
-        printChar("-", Integer.toString(getDividend()).length());
+        this.createNotFullDivisible();
         selectNextNotFullDivisible();
         if (getNotFullDivisible().length() > Integer.toString(getMultiplier() * getDivider()).length()) {
             getPrintResult().append("\n" + getSpace().toString() + "  " + getMultiplier() * getDivider());
         } else if (getNotFullDivisible().length() == Integer.toString(getMultiplier() * getDivider()).length()) {
             getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
         }
-        printChar(" ", Integer.toString(getDividendImmutable()).length() - getNotFullDivisible().length());
-        getPrintResult().append("|" + result);
+        printChar(" ", getRemainingPartDividend().length());
+        getPrintResult().append("|");
+        printChar("-", Integer.toString(getDividend()).length());
+
         getPrintResult().append("\n" + getSpace().toString() + " ");
         printChar("-", getNotFullDivisible().length());
+        printChar(" ", getRemainingPartDividend().length());
+        getPrintResult().append("|" + result);
         getSpace().append(" ");
     }
 
@@ -43,8 +56,12 @@ public class Print extends MethodsDivision {
             getPrintResult().append("\n" + " " + getDividend());
         } else {
             getPrintResult().append("\n" + getSpace().toString());
-            printChar(" ", getNotFullDivisible().length() - Integer.toString(getDividend()).length());
-            getPrintResult().append(getDividend());
+            //if (Integer.toString(getDividend()).length() == 1) {
+//
+  //              getPrintResult().deleteCharAt(getPrintResult().lastIndexOf(" "));
+    //        }
+            printChar(" ", getNotFullDivisible().toString().length() - Integer.toString(getDividend()).length());
+            getPrintResult().append(" " + getDividend());
         }
     }
 
