@@ -6,9 +6,9 @@ class IntegerDivision {
     private Integer divider;
     private int multiplier;
     private int dividendImmutable;
-    private StringBuffer notFullDivisible;
+    private StringBuffer minuendValue;
     private StringBuffer remainingPartDividend;
-    private StringBuffer NextNotFullDivisible;
+    private StringBuffer nextMinuendValue;
     private StringBuffer printResult;
     private StringBuffer space = new StringBuffer("");
 
@@ -56,28 +56,12 @@ class IntegerDivision {
         this.dividendImmutable = dividendImmutable;
     }
 
-    public StringBuffer getNotFullDivisible() {
-        return notFullDivisible;
-    }
-
-    public void setNotFullDivisible(StringBuffer notFullDivisible) {
-        this.notFullDivisible = notFullDivisible;
-    }
-
     public StringBuffer getRemainingPartDividend() {
         return remainingPartDividend;
     }
 
     public void setRemainingPartDividend(StringBuffer remainingPartDividend) {
         this.remainingPartDividend = remainingPartDividend;
-    }
-
-    public StringBuffer getNextNotFullDivisible() {
-        return NextNotFullDivisible;
-    }
-
-    public void setNextNotFullDivisible(StringBuffer nextNotFullDivisible) {
-        NextNotFullDivisible = nextNotFullDivisible;
     }
 
     public StringBuffer getPrintResult() {
@@ -94,5 +78,21 @@ class IntegerDivision {
 
     public void setSpace(StringBuffer space) {
         this.space = space;
+    }
+
+    public StringBuffer getMinuendValue() {
+        return minuendValue;
+    }
+
+    public void setMinuendValue(StringBuffer minuendValue) {
+        this.minuendValue = minuendValue;
+    }
+
+    public StringBuffer getNextMinuendValue() {
+        return nextMinuendValue;
+    }
+
+    public void setNextMinuendValue(StringBuffer nextMinuendValue) {
+        this.nextMinuendValue = nextMinuendValue;
     }
 }
