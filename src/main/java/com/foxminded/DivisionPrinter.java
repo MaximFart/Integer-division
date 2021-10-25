@@ -9,6 +9,9 @@ public class DivisionPrinter extends ProcessDivision {
     public void printGeneralDivision() {
         printHeadDivision();
         while (getDividend() >= getDivider()) {
+            if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider())) {
+                getSpace().append(" ");
+            }
             getPrintResult().append("\n" + getSpace().toString() + "_" + this.defineNotFullDivisible());
             selectNextNotFullDivisible();
             getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
@@ -16,6 +19,9 @@ public class DivisionPrinter extends ProcessDivision {
             printChar("-", getMinuendValue().length());
 
             if (getMinuendValue().length() == Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length() && getDividend() >= getDivider()) {
+                if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider())) {
+                    getSpace().append(" ");
+                }
                 getPrintResult().append("\n" + getSpace().toString() + "_" + this.defineNotFullDivisible());
                 selectNextNotFullDivisible();
                 getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
@@ -53,6 +59,9 @@ public class DivisionPrinter extends ProcessDivision {
         if (Integer.toString(getDividendImmutable()).length() == 1) {
             getPrintResult().append("\n" + " " + getDividend());
         } else {
+            if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider()) && getRemainingPartDividend().length() != 0) {
+                getSpace().append(" ");
+            }
             getPrintResult().append("\n" + getSpace().toString());
             printChar(" ", getMinuendValue().toString().length() - getNextMinuendValue().toString().length());
             getPrintResult().append(getDividend());

@@ -19,8 +19,12 @@ package com.foxminded;
 
     public void selectNextNotFullDivisible() {
         setMultiplier(defineNotFullDivisible() / getDivider());
-        setNextMinuendValue(new StringBuffer(Integer.toString(defineNotFullDivisible() % getDivider())));
-        getNextMinuendValue().append(getRemainingPartDividend());
+        if (defineNotFullDivisible() % getDivider() != 0 || getRemainingPartDividend().length() == 0) {
+            setNextMinuendValue(new StringBuffer(Integer.toString(defineNotFullDivisible() % getDivider())));
+            getNextMinuendValue().append(getRemainingPartDividend());
+        } else {
+            setNextMinuendValue(new StringBuffer(getRemainingPartDividend().toString()));
+        }
         setDividend(Integer.parseInt(getNextMinuendValue().toString()));
     }
 }
