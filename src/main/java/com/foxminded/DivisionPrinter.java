@@ -14,22 +14,13 @@ public class DivisionPrinter extends ProcessDivision {
             }
             getPrintResult().append("\n" + getSpace().toString() + "_" + this.defineNotFullDivisible());
             selectNextNotFullDivisible();
-            getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
+            if (getMinuendValue().length() > Integer.toString(getMultiplier() * getDivider()).length()) {
+                getPrintResult().append("\n" + getSpace().toString() + "  " + getMultiplier() * getDivider());
+            } else {
+                getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
+            }
             getPrintResult().append("\n" + getSpace().toString() + " ");
             printChar("-", getMinuendValue().length());
-
-            if (getMinuendValue().length() == Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length() && getDividend() >= getDivider()) {
-                if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider())) {
-                    getSpace().append(" ");
-                }
-                getPrintResult().append("\n" + getSpace().toString() + "_" + this.defineNotFullDivisible());
-                selectNextNotFullDivisible();
-                getPrintResult().append("\n" + getSpace().toString() + " " + getMultiplier() * getDivider());
-                getPrintResult().append("\n" + getSpace().toString() + " ");
-                printChar("-", getMinuendValue().length());
-                getSpace().append(" ");
-                continue;
-            }
             getSpace().append(" ");
         }
         printRemainsDivision();
@@ -52,7 +43,11 @@ public class DivisionPrinter extends ProcessDivision {
         printChar("-", getMinuendValue().length());
         printChar(" ", getRemainingPartDividend().length());
         getPrintResult().append("|" + result);
-        getSpace().append(" ");
+        if (getMinuendValue().length() != Integer.toString(getMultiplier() % getDivider()).length()) {
+
+            getSpace().append(" ");
+        }
+
     }
 
     public void printRemainsDivision() {
