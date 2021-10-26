@@ -46,9 +46,8 @@ public class DivisionPrinter extends ProcessDivision {
         printChar("-", getMinuendValue().length());
         printChar(" ", getRemainingPartDividend().length());
         getPrintResult().append("|" + result);
-        if (getMinuendValue().length() != Integer.toString(getMultiplier() * getDivider()).length()) {
-
-            getSpace().append(" ");
+        if (getMinuendValue().length() == Integer.toString(getMultiplier() * getDivider()).length()) {
+            printCharSpace(getMinuendValue().length() - Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length());
         }
 
     }
@@ -69,6 +68,13 @@ public class DivisionPrinter extends ProcessDivision {
     public void printChar(String s, int n) {
         for (int i = 0; i < n; i++) {
             getPrintResult().append(s);
+        }
+    }
+
+    public void printCharSpace(int n) {
+        String space = " ";
+        for (int i = 0; i < n; i++) {
+            getSpace().append(space);
         }
     }
 }
