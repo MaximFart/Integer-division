@@ -11,6 +11,8 @@ public class DivisionPrinter extends ProcessDivision {
         while (getDividend() >= getDivider()) {
             if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider())) {
                 getSpace().append(" ");
+            }else if (getMinuendValue().length() - Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length() == 2) {
+                getSpace().append(" ");
             }
             getPrintResult().append("\n" + getSpace().toString() + "_" + this.defineNotFullDivisible());
             selectNextNotFullDivisible();
@@ -21,6 +23,7 @@ public class DivisionPrinter extends ProcessDivision {
             }
             getPrintResult().append("\n" + getSpace().toString() + " ");
             printChar("-", getMinuendValue().length());
+            if (getMinuendValue().length() != Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length())
             getSpace().append(" ");
         }
         printRemainsDivision();
@@ -43,7 +46,7 @@ public class DivisionPrinter extends ProcessDivision {
         printChar("-", getMinuendValue().length());
         printChar(" ", getRemainingPartDividend().length());
         getPrintResult().append("|" + result);
-        if (getMinuendValue().length() != Integer.toString(getMultiplier() % getDivider()).length()) {
+        if (getMinuendValue().length() != Integer.toString(getMultiplier() * getDivider()).length()) {
 
             getSpace().append(" ");
         }
@@ -58,7 +61,7 @@ public class DivisionPrinter extends ProcessDivision {
                 getSpace().append(" ");
             }
             getPrintResult().append("\n" + getSpace().toString());
-            printChar(" ", getMinuendValue().toString().length() - getNextMinuendValue().toString().length());
+            printChar(" ", getMinuendValue().toString().length() - Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length());
             getPrintResult().append(getDividend());
         }
     }
