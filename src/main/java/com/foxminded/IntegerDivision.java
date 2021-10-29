@@ -13,6 +13,9 @@ class IntegerDivision {
     private StringBuffer space = new StringBuffer("");
 
     public IntegerDivision(Integer dividend, Integer divider) throws IllegalArgumentException {
+        if (dividend == null || divider == null) {
+            throw new IllegalArgumentException("Input is null");
+        }
         if (divider > dividend) {
             throw new IllegalArgumentException("Incorrect input");
         }

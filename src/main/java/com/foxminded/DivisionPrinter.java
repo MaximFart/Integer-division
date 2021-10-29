@@ -41,13 +41,19 @@ public class DivisionPrinter extends ProcessDivision {
         }
         printChar(" ", getRemainingPartDividend().length());
         getPrintResult().append("|");
-        printChar("-", Integer.toString(getDividend()).length());
+        if (getDivider() >= result) {
+            printChar("-", Integer.toString(getDivider()).length());
+        } else {
+            printChar("-", Integer.toString(result).length());
+        }
         getPrintResult().append("\n" + getSpace().toString() + " ");
         printChar("-", getMinuendValue().length());
         printChar(" ", getRemainingPartDividend().length());
         getPrintResult().append("|" + result);
         if (getMinuendValue().length() == Integer.toString(getMultiplier() * getDivider()).length()) {
             printCharSpace(getMinuendValue().length() - Integer.toString(Integer.parseInt(getMinuendValue().toString()) % getDivider()).length());
+        } else {
+            getSpace().append(" ");
         }
 
     }
