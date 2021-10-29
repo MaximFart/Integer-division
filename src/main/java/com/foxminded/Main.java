@@ -3,9 +3,8 @@ package com.foxminded;
 public class Main {
     public static void main(String[] args) throws Exception {
         try {
-            DivisionPrinter print = new DivisionPrinter(5656565, 56);
-            print.printGeneralDivision();
-            System.out.println(print.getPrintResult());
+            DivisionPrinter print = new DivisionPrinter(null, 56);
+            System.out.println(print.printGeneralDivision());
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }

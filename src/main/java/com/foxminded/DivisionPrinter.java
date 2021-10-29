@@ -6,7 +6,7 @@ public class DivisionPrinter extends ProcessDivision {
         super(dividend, divider);
     }
 
-    public void printGeneralDivision() {
+    public StringBuffer printGeneralDivision() {
         printHeadDivision();
         while (getDividend() >= getDivider()) {
             if (Integer.parseInt(getMinuendValue().toString()) == (getMultiplier() * getDivider())) {
@@ -27,9 +27,10 @@ public class DivisionPrinter extends ProcessDivision {
             getSpace().append(" ");
         }
         printRemainsDivision();
+        return getPrintResult();
     }
 
-    public void printHeadDivision() {
+    private void printHeadDivision() {
         getPrintResult().append("_" + Integer.toString(getDividend()) + "|" + Integer.toString(getDivider()));
         int result = getDividend() / getDivider();
         this.defineNotFullDivisible();
@@ -58,7 +59,7 @@ public class DivisionPrinter extends ProcessDivision {
 
     }
 
-    public void printRemainsDivision() {
+    private void printRemainsDivision() {
         if (Integer.toString(getDividendImmutable()).length() == 1) {
             getPrintResult().append("\n" + " " + getDividend());
         } else {
@@ -71,13 +72,13 @@ public class DivisionPrinter extends ProcessDivision {
         }
     }
 
-    public void printChar(String s, int n) {
+    private void printChar(String s, int n) {
         for (int i = 0; i < n; i++) {
             getPrintResult().append(s);
         }
     }
 
-    public void printCharSpace(int n) {
+    private void printCharSpace(int n) {
         String space = " ";
         for (int i = 0; i < n; i++) {
             getSpace().append(space);
