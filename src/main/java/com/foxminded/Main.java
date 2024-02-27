@@ -5,6 +5,10 @@ public class Main {
         try {
             DivisionPrinter print = new DivisionPrinter(null, 56);
             System.out.println(print.printGeneralDivision());
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
